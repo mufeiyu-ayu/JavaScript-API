@@ -23,6 +23,7 @@ Array.prototype.myEvery = function (fn, thisValue) {
     }
     // fn函数存在3个参数
     for (let i = 0; i < arr.length; i++) {
+        // 依次调用3次函数，如果不成立则返回false
         if (!fn.call(this, arr[i], i, arr)) {
             return false
         }

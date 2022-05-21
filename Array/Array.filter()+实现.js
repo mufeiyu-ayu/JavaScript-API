@@ -16,6 +16,7 @@ Array.prototype.myFilter = function (fn, thisArg) {
         return []
     }
     for (let i = 0; i < arr.length; i++) {
+        //  依次调用3次函数，如果成立则开始过滤
         if (fn.call(arr, arr[i], i, arr)) {
             newArr.push(arr[i])
         }
