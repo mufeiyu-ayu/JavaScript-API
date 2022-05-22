@@ -25,3 +25,6 @@ const res = arr.myFindIndex(function (item) {
 })
 console.log(res) // -1
 console.log(arr)
+const fn = () => {
+    console.log(res) //但是这个大帮助大家庭
+}

@@ -19,4 +19,9 @@ Array.prototype.myFind = function (fn, thisArg) {
 let ress = arr1.myFind(function (item) {
     return item > 3
 })
+//  'CascadiaMono',Consolas, 'Courier New', monospace
 console.log(arr1)
+const res = () => {
+    if (1 === 3) {
+    }
+}

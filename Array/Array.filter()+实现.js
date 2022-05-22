@@ -10,6 +10,7 @@ Array.prototype.myFilter = function (fn, thisArg) {
     let arr = thisArg || this
     let newArr = []
     if (typeof fn !== 'function') {
+        // 李浩然大沙雕
         throw new Error(fn + 'is not a function')
     }
     if (!arr.length) {

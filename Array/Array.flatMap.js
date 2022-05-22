@@ -5,4 +5,3 @@ flatMap 能用于在map期间增删项目（也就是修改items的数量）。�
  */
 // const res = arr1.flatMap((item, index) => item * 2)
 const res = arr1.flatMap((item) => (item === 3 ? [] : item * 3))
-console.log(res)
