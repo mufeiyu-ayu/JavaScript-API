@@ -1,3 +1,4 @@
+// Array.from() 方法对一个类似数组或可迭代对象创建一个新的，浅拷贝的数组实例。
 // Array.from(arrayLike[, mapFn[, thisArg]])
 const str = 'abcdefg'
 const aa = [1]

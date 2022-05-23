@@ -21,7 +21,3 @@ let ress = arr1.myFind(function (item) {
 })
 //  'CascadiaMono',Consolas, 'Courier New', monospace
 console.log(arr1)
-const res = () => {
-    if (1 === 3) {
-    }
-}
