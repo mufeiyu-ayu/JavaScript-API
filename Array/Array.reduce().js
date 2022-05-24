@@ -116,9 +116,102 @@ let friends = [
 
 // 通过reduce以及指定初始值来缓存每一个数组的值
 const test1 = friends.reduce(function (value, item) {
-    console.log(value)
-
     return [...value, ...item.books]
     /* 这里其实把return的结果保留作为下一次调用的value值，reduce也就是通过这个原理来缓存数据的 */
 }, [])
-console.log(test1)
+
+// 使用reduce代替filter.map
+const numbers = [-3, -5, 3, 4, 1, 5]
+let sum = 0
+const ress = numbers
+    .filter((item) => item > 0)
+    .forEach((item) => {
+        sum += item
+        // return sum
+    })
+// console.log(sum) // 13   遍历了2次数组
+// reduce改善
+const result6 = numbers.reduce((value, item) => {
+    if (item > 0) {
+        const double = item * 2
+    } else {
+        item = 0
+    }
+    return value + item
+}, 0)
+// console.log(result6) // 13
+
+/**
+ * Runs promises from array of functions that can return promises
+ * in chained manner
+ *
+ * @param {array} arr - promise arr
+ * @return {Object} promise object
+ * 按顺序运行promise，依次拿到结果进行操作
+ */
+function runPromiseInSequence(arr, input) {
+    return arr.reduce((promiseChain, currentFunction) => promiseChain.then(currentFunction), Promise.resolve(input))
+}
+
+// promise function 1
+function p1(a) {
+    return new Promise((resolve, reject) => {
+        resolve(a * 5)
+    })
+}
+
+// 按顺序执行promise promise function 2
+function p2(a) {
+    return new Promise((resolve, reject) => {
+        resolve(a * 2)
+    })
+}
+
+// function 3  - will be wrapped in a resolved promise by .then()
+function f3(a) {
+    return a * 3
+}
+
+// promise function 4
+function p4(a) {
+    return new Promise((resolve, reject) => {
+        resolve(a * 4)
+    })
+}
+
+const promiseArr = [p1, p2, f3, p4]
+runPromiseInSequence(promiseArr, 10).then(console.log) // 1200
+
+console.log(
+    Promise.resolve(300)
+        .then(function p4(a) {
+            return new Promise((resolve, reject) => {
+                resolve(a * 4)
+            })
+        })
+        .then()
+)
+
+Promise.resolve(10)
+    .then(
+        (value) =>
+            new Promise((resolve, reject) => {
+                resolve(value * 5)
+            })
+    )
+    .then(
+        (value) =>
+            new Promise((resolve, reject) => {
+                resolve(value * 2)
+            })
+    )
+    .then((value) => value * 3)
+    .then(
+        (value) =>
+            new Promise((resolve, reject) => {
+                resolve(value * 4)
+            })
+    )
+    .then((value) => {
+        // console.log(value) // 1200
+    })
