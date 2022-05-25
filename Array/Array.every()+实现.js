@@ -12,25 +12,16 @@ const arr1 = [10, 20, 30, 40]
 const arr2 = arr1.every((item) => item < 50)
 // console.log(arr2)
 
-Array.prototype.myEvery = function (fn, thisValue) {
-    let arr = thisValue || this // thisValue有值就以thisvalue为准
-    if (typeof fn !== 'function') {
-        throw new Error('fn is not a function')
-    }
-    // 空数组 返回 true
-    if (!arr.length) {
-        return true
-    }
-    // fn函数存在3个参数
-    for (let i = 0; i < arr.length; i++) {
-        // 依次调用3次函数，如果不成立则返回false
-        if (!fn.call(this, arr[i], i, arr)) {
-            return false
+Array.prototype.myEvery = function (fn) {
+    let arr = this,
+        arg2 = arguments[1] || window,
+        len = arr.length,
+        res = true
+    for (let i = 0; i < len; i++) {
+        if (!fn.applly(arg2, [arr[i], i, arr])) {
+            res = false
+            break
         }
     }
-    return true
+    return res
 }
-const arr3 = arr1.myEvery(function (item, index, arr) {
-    console.log(arr)
-    return item < 50
-})

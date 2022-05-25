@@ -1,11 +1,11 @@
-// Array.reduce(callback(value,item,index,arr),initilaValue)
+// Array.reduce(callback(value,item,index,arr),initilaValue) // 归纳函数
 /* 第一次执行回调函数时，不存在“上一次的计算结果”。如果需要回调函数从数组索引为 0 的元素开始执行，则需要传递初始值。否则，数组索引为 0 的元素将被作为初始值 initialValue，迭代器将从第二个元素开始执行（索引为 1 而不是 0）。 
 reducer 逐个遍历数组元素，每一步都将当前元素的值与上一步的计算结果(((相加)))（上一步的计算结果是当前元素之前所有元素的总和）——直到没有更多的元素被相加。
 */
 
 // 1.没有初始值
-const ary = [1, 2, 3, 4, 5]
-// const result1 = ary.reduce(function (value, item, index, arr) {
+const ary1 = [1, 2, 3, 4, 5]
+// const result1 = ary1.reduce(function (value, item, index, arr) {
 //     console.log(value) // 1,3,6,10
 //     console.log(item) // 2,3,4,5
 //     console.log(index) // 1,2,3,4
@@ -15,7 +15,7 @@ const ary = [1, 2, 3, 4, 5]
 // console.log(result)
 
 // 2.有初始值
-const result2 = ary.reduce((value, item, index, arr) => {
+const result2 = ary1.reduce((value, item, index, arr) => {
     // console.log(value)  // 10,11,13,16,20
     // console.log(item) // 1,2,3,4,5
     // console.log(index) // 0,1,2,3,4,5
@@ -215,3 +215,20 @@ Promise.resolve(10)
     .then((value) => {
         // console.log(value) // 1200
     })
+
+// 实现reduce
+Array.prototype.myReduce = function (fn, initilaValue) {
+    let arr = this,
+        len = arr.length,
+        arg2 = arguments[2] || window // 增加了this指向的功能
+    for (let i = 0; i < len; i++) {
+        // 这里也可以使用深拷贝完善封装
+        initilaValue = fn.apply(arg2, [initilaValue, arr[i], i, arr])
+    }
+    return initilaValue
+}
+const test11 = [1, 2, 3, 4, 5]
+const rs111 = test11.myReduce(function (initilaValue, item) {
+    return initilaValue + item
+}, 0)
+// console.log(rs111) //15
