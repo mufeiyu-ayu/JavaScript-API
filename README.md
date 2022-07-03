@@ -1,8 +1,29 @@
-# API 记不住，那我们就疯狂敲，疯狂记，再记不住就手写一个
+### 关于 Array，String，Number,Object,Function 等数据类型的方法总结
 
-# 这次打算将 Number,Object,Array,string,Function 的方法回炉一下
+####也有很多方法没有实现，希望有兴趣的朋友可以试试，email：2382839439
 
-# 也有很多方法没有实现，希望有兴趣的朋友可以试试，V:19986442013
+#### Array
 
-1. 解决了 filter 浅拷贝的问题
-2. 研究了 reduce 的工作流程以及各项用法
+1. Array.concat
+2. Array.copyWidth
+3. Array.eyery(已实现)
+4. Array.fill(已实现)
+5. Array.filter(已实现)
+6. Array.find(已实现)
+7. Array.findIndex(已实现)
+8. Array.flat(已实现)
+9. Array.flatMap
+10. Array.forEach(已实现)
+11. Array.from
+12. Array.includes
+13. Array.indexOf
+14. Array.isArray(已实现)
+15. Array.join(已实现)
+16. Array.lastIndexOf
+17. Array.map(已实现)
+18. Array.of
+19. Array.pop
+20. Array.push(已实现)
+21. Array.reduce(已实现)
+22. Array.reduceRight
+23. Array.some(已实现)
