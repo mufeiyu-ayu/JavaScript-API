@@ -8,7 +8,7 @@
 2. Array.copyWidth
 3. Array.eyery(已实现)
 4. Array.fill(已实现)
-5. Array.filter(已实现)
+5. Array.filter(已实现) -- 也优化了返回的新数组是浅拷贝的问题
 6. Array.find(已实现)
 7. Array.findIndex(已实现)
 8. Array.flat(已实现)

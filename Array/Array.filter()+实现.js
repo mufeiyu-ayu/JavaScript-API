@@ -2,10 +2,10 @@
 var newArray = arr.filter(callback(element[, index[, array]])[, thisArg])
  */
 let arr = [10, 20, 30, 40]
-// let resArr = arr.filter(function (item) {
-//     return item > 30
-// })
-// console.log(resArr) // 40
+let resArr = arr.filter(function (item) {
+    return item > 30
+})
+console.log(resArr) // 40
 Array.prototype.myFilter1 = function (fn) {
     let arr = this,
         len = arr.length,
@@ -18,6 +18,7 @@ Array.prototype.myFilter1 = function (fn) {
     }
     return newAry
 }
+
 let res = arr.myFilter1(
     function (item) {
         return item > 10
@@ -54,7 +55,7 @@ const deepCopy = function (oldObj, newObj) {
     // 遍历
     for (let key in oldObj) {
         if (oldObj.hasOwnProperty(key)) {
-            if (typeof oldObj[key] === 'object' && oldObj[key] !== null) {
+            if (typeof oldObj[key] === 'object' && typeof oldObj[key] !== null) {
                 if (toStr.call(oldObj[key]) === '[object Array]') {
                     target[key] = []
                 } else {

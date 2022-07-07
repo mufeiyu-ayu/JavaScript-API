@@ -19,3 +19,17 @@ const arr7 = [1, 2, 3, 4]
 const arr8 = [[5], 6, 7, [[8]]]
 const arr9 = arr7.concat(arr8)
 console.log(arr9) // [ 1, 2, 3, 4, [ 5 ], 6, 7, [ [ 8 ] ] ]
+
+Array.prototype.myConcat = function (...arg) {
+    let arr = this,
+        len = arg.length
+    if (Object.prototype.toString.call(arg) === '[object Array]') {
+        arg = arg.flat()
+    }
+    for (let i = 0; i < len; i++) {
+        arr.push(arg[i])
+    }
+    return arr
+}
+let ar1 = [1, 2, 3, 4]
+console.log(ar1.myConcat([5, 6, 7]))
