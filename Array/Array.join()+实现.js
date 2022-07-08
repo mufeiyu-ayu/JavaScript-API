@@ -1,6 +1,6 @@
 const ary = [1, 2, 3, 4, undefined, 5, null]
 const res = ary.join()
-console.log(res) // '1,2,3,4' string
+console.log(res, '--') // '1,2,3,4, ,5,
 // console.log(ary) // [1,2,3,4]
 console.log(ary.join('-')) // ‘1-2-3-4’
 // 如果一个元素为 undefined 或 null，它会被转换为空字符串。

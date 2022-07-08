@@ -22,3 +22,19 @@ const res = Array.from(numStr, (item) => {
     return Number(item) * 3
 })
 console.log(res)
+// 合并数组去重
+function combine() {
+    // // my method
+    // let arr1 = Array.from(arguments).flat(Infinity)
+    // return Array.from(new Set(arr1))
+
+    let ary = [].concat.apply([], arguments)
+    console.log(ary, '----------')
+
+    return Array.from(new Set(ary))
+}
+
+var m = [1, 2, 2],
+    n = [2, 3, 3]
+console.log(combine(m, n))
+let ary = Array.from([[1, 2, 3]])
