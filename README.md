@@ -27,3 +27,9 @@
 21. Array.reduce(已实现)
 22. Array.reduceRight
 23. Array.some(已实现)
+24. Arrat.reverse
+25. Array.shift
+26. Array.sort
+27. Array.splice
+28. Array.toString
+29. Arrat.unshift

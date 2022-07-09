@@ -4,5 +4,4 @@ let ary1 = [10, 42, 34, 53, 13, 45, 87, 24]
 let result2 = ary1.sort((a, b) => b - a) // 降序，反之升序
 result[0] = 100
 console.log(ary)
-
 console.log(result)
