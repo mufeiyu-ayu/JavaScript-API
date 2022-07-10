@@ -3,10 +3,10 @@ const obj = { age: 22 }
 console.log(obj)
 
 Object.defineProperty(obj, 'a', {
-    configurable: true,
-    value: 22,
-    writable: true,
-    enumerable: true
+    configurable: true, // 可配置
+    value: 22, // 值
+    writable: true, // 可写？
+    enumerable: true // 可枚举？
 })
 console.log(obj)
 for (let key in obj) {
