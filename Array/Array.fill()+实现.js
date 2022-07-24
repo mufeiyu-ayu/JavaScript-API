@@ -4,14 +4,10 @@
 const array1 = [1, 2, 3, 4]
 console.log(array1.fill(0, 1, 2)) // [ 1, 0, 3, 4 ]
 
-
 //
-Array.prototype.myFill = function (value, start = 0, end) {
-    end = end || this.length
+Array.prototype.myFilii = function (value, start = 0, end = this.length) {
     for (let i = start; i < end; i++) {
         this[i] = value
     }
     return this
 }
-
-

@@ -2,22 +2,17 @@ const arr = [1, 2, 3, 4]
 
 // const res = arr.findIndex((item) => item > 2)
 
-Array.prototype.myFindIndex = function (fn, thisArg) {
-    if (typeof fn !== 'function') {
-        throw new Error(fn + 'is not a function')
-    }
-    const arr = thisArg || this
-    if (!arr.length) {
-        return -1
-    }
-    let resIndex = null
-    for (let i = 0; i < arr.length; i++) {
-        resIndex = fn.call(arr, arr[i], i, arr)
-        if (resIndex) {
-            return i
+Array.prototype.myFindIndex = function (fn, thisArg = window) {
+    let index = -1,
+        arg = this,
+        len = arg.length
+    for (let i = 0; i < len; i++) {
+        if (fn.call(thisArg, arg[i], i, arg)) {
+            index = i
+            break
         }
     }
-    return -1
+    return index
 }
 
 const res = arr.myFindIndex(function (item) {

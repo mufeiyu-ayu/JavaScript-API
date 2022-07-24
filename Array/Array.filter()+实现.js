@@ -6,14 +6,15 @@ let resArr = arr.filter(function (item) {
     return item > 30
 })
 console.log(resArr) // 40
-Array.prototype.myFilter1 = function (fn) {
-    let arr = this,
-        len = arr.length,
-        arg2 = arguments[1] || window,
-        newAry = []
+Array.prototype.myFilter = function (fn, thisArg = window) {
+    let newAry = [],
+        ary = this,
+        len = ary.length
     for (let i = 0; i < len; i++) {
-        if (fn.apply(arg2, [arr[i], i, arr])) {
-            newAry.push(arr[i])
+        console.log(thisArg)
+
+        if (fn.call(thisArg, ary[i], i, ary)) {
+            newAry.push(ary[i])
         }
     }
     return newAry
